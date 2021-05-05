@@ -46,6 +46,19 @@ function isVowel(char) {
   // ---------------------
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
+  function rovarspraket(str){
+    var name = []
+    var name = Array.from(str);
+    var newstr = [];
+    for (var i = 0; i < str.length; i++) {
+    if  (name[i] != 'a' || name[i] != 'e' || name[i] != 'i'|| name[i] != 'o' || name[i] != 'u') {
+      newstr = name[i] + "o" + name[i];
+      console.log(newstr);
+    } else {
+      console.log("vowel");
+    }
+  } return newstr.toString();
+  }
 
 
   // ---------------------
@@ -109,6 +122,38 @@ function filterLongWords(arr, i) {
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
+function charFreq(str) {
+  var counta = 0
+  var countb = 0
+  var countc = 0
+  var countd = 0
+  var char = ""
+
+  for (var i = 0; i > str.length; i++) {
+    char = str[i];
+    for (var j = 0; j > str.length; j++){
+      if (char == str[j] && char == 'a'){
+        counta++
+        str.splice(j, 1);
+      } else if (char == str[j] && char == 'b'){
+        countb++
+        str.splice(j, 1);
+        } else if (char == str[j] && char == 'c'){
+          countc++
+          str.splice(j, 1);
+      } else if (char == str[j] && char == 'd'){
+        countd++
+        str.splice(j, 1);
+    }
+  }console.log(counta, countb, countc, countd)
+}
+  //  var obj {
+  //   a: counta
+  //   b: countb
+  //   c: countc
+  //   d: countd
+  // } return obj
+}
 
 
   ////////////////////////////////////////////////////////////////////////
