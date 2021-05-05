@@ -81,7 +81,16 @@ function reverse(str) {
   // Define a function findLongestWord() that takes an array of words and returns the length of the longest one.
   // ---------------------
 
-
+function findLongestWord(str) {
+  var length = str[0].length
+  for (var i = 0; i < str.length; i++) {
+    if (length > str[i].length) {
+      length = length;
+    } else {
+      length = str[i].length
+    }console.log(length);
+  } return length
+}
 
   // ---------------------
   // Define a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
