@@ -48,12 +48,23 @@ function isVowel(char) {
   // ---------------------
 
 
-
   // ---------------------
   // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
   // ---------------------
+function sum(arr) {
+  var total = 0
+  for (var i = 0; i < arr.length; i++){
+    total += arr[i];
+  } return total
+}
 
-
+function multiply(array) {
+  var total = array[0]
+  for (var i = 0; i < array.length; i++){
+    console.log(total)
+    total *= array[i]
+  } return total
+}
 
 
   // ---------------------
@@ -95,7 +106,7 @@ function isVowel(char) {
 
   console.assert(isVowel('b') == false, 'ERROR function isVowel');
 
-  console.assert(rovarspraket("this is fun") === "tothohisos isos fofunon", 'ERROR function rovarspraket');
+  // console.assert(rovarspraket("this is fun") === "tothohisos isos fofunon", 'ERROR function rovarspraket');
 
   console.assert(sum([1, 2, 3, 4]) === 10, 'ERROR function sum');
 
