@@ -35,7 +35,7 @@ return result
   // Define a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
   // ---------------------
 function isVowel(char) {
-  if (char == "a" || char == "e" || char == "i" || char == "o" || char == "u"){
+  if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u"){
     return true
   } else {
     return false
@@ -46,18 +46,16 @@ function isVowel(char) {
   // ---------------------
   // Write a function rovarspraket() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
   // ---------------------
-  function rovarspraket(str){
-    var name = []
-    var name = Array.from(str);
-    var newstr = [];
-    for (var i = 0; i < str.length; i++) {
-    if  (name[i] != 'a' || name[i] != 'e' || name[i] != 'i'|| name[i] != 'o' || name[i] != 'u') {
-      newstr = name[i] + "o" + name[i];
-      console.log(newstr);
-    } else {
-      console.log("vowel");
-    }
-  } return newstr.toString();
+  function rovarspraket(text) {
+  let translation = "";
+  text.toLowerCase().split('').forEach(function(char){
+  if('bcdfghjklmnpqrstvwxyz'.includes(char)) {
+  translation += char + 'o' + char;
+  } else {
+  translation += char;
+  }
+  });
+  return translation
   }
 
 
@@ -122,39 +120,14 @@ function filterLongWords(arr, i) {
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
-function charFreq(str) {
-  var counta = 0
-  var countb = 0
-  var countc = 0
-  var countd = 0
-  var char = ""
+  function charFreq(str) {
+  const freqList = {};
 
-  for (var i = 0; i > str.length; i++) {
-    char = str[i];
-    for (var j = 0; j > str.length; j++){
-      if (char == str[j] && char == 'a'){
-        counta++
-        str.splice(j, 1);
-      } else if (char == str[j] && char == 'b'){
-        countb++
-        str.splice(j, 1);
-        } else if (char == str[j] && char == 'c'){
-          countc++
-          str.splice(j, 1);
-      } else if (char == str[j] && char == 'd'){
-        countd++
-        str.splice(j, 1);
-    }
-  }console.log(counta, countb, countc, countd)
-}
-  //  var obj {
-  //   a: counta
-  //   b: countb
-  //   c: countc
-  //   d: countd
-  // } return obj
-}
-
+  str.split('').forEach(function(char) {
+  freqList[char] = freqList[char] + 1 || 1;
+  });
+  return freqList;
+  }
 
   ////////////////////////////////////////////////////////////////////////
   /////////////////////////DO NOT CHANGE CODE BELOW///////////////////////
@@ -172,7 +145,7 @@ function charFreq(str) {
 
   console.assert(isVowel('b') == false, 'ERROR function isVowel');
 
-  // console.assert(rovarspraket("this is fun") === "tothohisos isos fofunon", 'ERROR function rovarspraket');
+  console.assert(rovarspraket("this is fun") === "tothohisos isos fofunon", 'ERROR function rovarspraket');
 
   console.assert(sum([1, 2, 3, 4]) === 10, 'ERROR function sum');
 
